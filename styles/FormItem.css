@@ -1,0 +1,36 @@
+.form-item {
+  transition: 0.3s;
+}
+.form-item:hover {
+  background-color: rgb(237, 237, 237);
+}
+
+.form-item td {
+  padding: 15px;
+  border-bottom: 1px solid rgb(209, 209, 209);
+}
+
+.action-btns {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  text-align: end;
+}
+
+.action-btns img {
+  padding: 10px;
+  margin-right: 10px;
+  cursor: pointer;
+  border-radius: 1px;
+  box-shadow: 10px 10px 10px rgba(46, 42, 42, 0.06);
+}
+
+.action-btns img:nth-child(1) {
+  background-color: #004a91;
+}
+.action-btns img:nth-child(2) {
+  background-color: white;
+}
+.action-btns img:nth-child(3) {
+  background-color: #dcac00;
+}

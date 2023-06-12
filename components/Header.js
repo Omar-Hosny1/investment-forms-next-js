@@ -16,8 +16,8 @@ function Header() {
     setIsEnglishSelected(false);
   }
 
-  const englishClassName = `app-text ${isEnglishSelected && "active-span"}`;
-  const arabicClassName = `app-text ${!isEnglishSelected && "active-span"}`;
+  const englishClassName = `${isEnglishSelected && "active-span"}`;
+  const arabicClassName = `${!isEnglishSelected && "active-span"}`;
 
   return (
     <div className="header">
@@ -34,8 +34,8 @@ function Header() {
       </div>
 
       <div className="header-dropdown">
-        <span className="header__image-place-holder app-text">BA</span>
-        <div className="header-dropdown__greeting app-text">
+        <span className="header__image-place-holder">BA</span>
+        <div className="header-dropdown__greeting">
           <span>Welcome!</span>
           <span>Bader Alobaidi</span>
         </div>

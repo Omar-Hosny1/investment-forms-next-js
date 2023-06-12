@@ -1,4 +1,12 @@
-import styles from "./page.module.css";
+import Forms from "@/components/Forms";
+import "../styles/Home.css";
+import HomeEntrySection from "@/components/HomeEntrySection";
+
 export default function Home() {
-  return <></>;
+  return (
+    <>
+      <HomeEntrySection />
+      <Forms />
+    </>
+  );
 }

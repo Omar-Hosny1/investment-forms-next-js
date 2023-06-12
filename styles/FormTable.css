@@ -1,0 +1,36 @@
+.table-container {
+  height: 350px;
+  background-color: white;
+
+  /* To Hide The Scroll bar */
+  -ms-overflow-style: none; /* for Internet Explorer, Edge */
+  scrollbar-width: none; /* for Firefox */
+  overflow-y: scroll;
+}
+
+/* To Hide The Scroll bar */
+.table-container::-webkit-scrollbar {
+  display: none; /* for Chrome, Safari, and Opera */
+}
+
+.forms-table {
+  border-spacing: 0px;
+  margin-top: 15px;
+  width: 100%;
+  text-align: start;
+}
+
+.forms-table__header {
+  background-color: #004a91;
+  color: white;
+}
+
+.forms-table__header th {
+  padding: 15px;
+  font-weight: 300;
+  text-align: start;
+}
+
+.forms-table__header th:nth-child(4) {
+  text-align: end;
+}

@@ -1,0 +1,32 @@
+.forms {
+  box-shadow: rgba(100, 100, 111, 0.13) 0px 7px 29px 0px;
+  height: 400px;
+  background-color: white;
+  margin-top: 12px;
+  transition: 0.3s;
+}
+
+.forms:hover {
+  box-shadow: rgba(100, 100, 111, 0.16) 0px 7px 29px 0px;
+}
+.forms-btns {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.forms-btns button {
+  background-color: white;
+  box-shadow: rgba(100, 100, 111, 0.07) 0px 7px 29px 0px;
+  border: 0;
+  padding: 10px 15px;
+  color: #004a91;
+  font-weight: bold;
+  transition: 0.3s;
+  margin-top: 30px;
+}
+.forms-btns .active-btn {
+  background-color: #004a91;
+  border: 0;
+  padding: 10px 15px;
+  color: white;
+}
