@@ -31,6 +31,6 @@
   text-align: start;
 }
 
-.forms-table__header th:nth-child(4) {
+.forms-table__header th:last-child {
   text-align: end;
 }

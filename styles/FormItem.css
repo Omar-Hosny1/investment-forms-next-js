@@ -1,6 +1,7 @@
 .form-item {
   transition: 0.3s;
 }
+
 .form-item:hover {
   background-color: rgb(237, 237, 237);
 }
@@ -23,6 +24,10 @@
   cursor: pointer;
   border-radius: 1px;
   box-shadow: 10px 10px 10px rgba(46, 42, 42, 0.06);
+}
+
+.action-btns img:last-child {
+  margin-right: 0px;
 }
 
 .action-btns img:nth-child(1) {
