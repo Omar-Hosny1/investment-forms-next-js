@@ -1,0 +1,11 @@
+.create-form__container {
+  display: flex;
+  align-items: start;
+  margin-top: 10px;
+}
+
+.create-form__form {
+  margin-left: 5px;
+  flex-grow: 1;
+  height: fit-content;
+}

@@ -6,7 +6,7 @@ import arrowDownIcon from "../public/icons/arrow-down_blue.png";
 import formsIcon from "../public/icons/forms.png";
 import searchIcon from "../public/icons/search.png";
 
-function HomeEntrySection() {
+function EntrySection() {
   return (
     <div className="container">
       <div className="forms-entry container">
@@ -34,4 +34,4 @@ function HomeEntrySection() {
   );
 }
 
-export default HomeEntrySection;
+export default EntrySection;

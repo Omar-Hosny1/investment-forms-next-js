@@ -1,0 +1,24 @@
+.side-menu-item {
+  display: flex;
+  background-color: #004a91;
+  align-items: center;
+  justify-content: space-evenly;
+  width: fit-content;
+  margin: 7px 0;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.side-menu-item:nth-child(1) {
+  margin: 0;
+}
+
+.side-menu-item img {
+  width: 12px;
+  height: 14px;
+}
+.side-menu-item span {
+  color: white;
+  font-weight: bold;
+  margin-left: 10px;
+}

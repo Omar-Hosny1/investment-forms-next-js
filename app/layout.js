@@ -1,5 +1,6 @@
 import "./globals.css";
 import Header from "../components/Header";
+import EntrySection from "@/components/HomeEntrySection";
 // import Footer from "../components/Footer";
 
 export const metadata = {
@@ -12,6 +13,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body>
         <Header />
+        <EntrySection />
         {children}
       </body>
     </html>
