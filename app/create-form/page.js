@@ -1,44 +1,46 @@
-import SideMenuItem from "@/components/SideMenuItem";
-import Image from "next/image";
+"use client";
 import React from "react";
-import "../../styles/CreateForm.css";
-import DetailsForm from "@/components/DetailsForm";
-import OtherInformatonForm from "@/components/OtherInformatonForm";
-import CertificationForm from "@/components/CertificationForm";
-import person from "../../public/icons/person.png";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import SideMenuItem from "@/components/SideMenuItem";
 import {
   faCertificate,
-  faInfo,
   faInfoCircle,
-  faUser,
   faUserAlt,
 } from "@fortawesome/free-solid-svg-icons";
+
+import "../../styles/CreateForm.css";
+import CertificationForm from "@/components/CertificationForm";
+import { useSelector } from "react-redux";
+import DetailsForm from "@/components/DetailsForm";
+import OtherInformatonForm from "@/components/OtherInformatonForm";
+
 function CreateForm() {
+  const currentForm = useSelector((state) => state.forms.currentForm);
+  console.log(currentForm);
   return (
     <div className="container">
       <div className="create-form__container">
         <div className="create-form__side-menu">
           <SideMenuItem
-            isActive={true}
+            isActive={currentForm == 0 ? true : false}
             title={"Custodian Details"}
             icon={faUserAlt}
           />
           <SideMenuItem
             icon={faInfoCircle}
-            isActive={true}
+            isActive={currentForm == 1 ? true : false}
             title={"Other Information"}
           />
           <SideMenuItem
             icon={faCertificate}
-            isActive={true}
+            isActive={currentForm == 2 ? true : false}
             title={"Certification"}
           />
         </div>
+
         <div className="create-form__form">
-          {/* <DetailsForm /> */}
-          {/* <OtherInformatonForm /> */}
-          <CertificationForm />
+          {currentForm == 0 && <DetailsForm />}
+          {currentForm == 1 && <OtherInformatonForm />}
+          {currentForm == 2 && <CertificationForm />}
         </div>
       </div>
     </div>

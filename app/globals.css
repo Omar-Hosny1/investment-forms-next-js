@@ -48,6 +48,13 @@ a {
   }
 }
 
+/* Very Large */
+@media (min-width: 1400px) {
+  .container {
+    width: 1300px;
+  }
+}
+
 /* The Global Submit Button */
 
 .global-form__btns {

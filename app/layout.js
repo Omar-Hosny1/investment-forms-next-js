@@ -4,6 +4,7 @@ import EntrySection from "@/components/HomeEntrySection";
 // import Footer from "../components/Footer";
 import Blob from "../public/Blob.png";
 import Image from "next/image";
+import { ReduxProvider } from "@/redux/provider";
 
 export const metadata = {
   title: "Create Next App",
@@ -14,14 +15,16 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
-        <Image src={Blob} className="circle right-bottom" />
-        <Image src={Blob} className="circle left-bottom" />
-        <Image src={Blob} className="circle top-center" />
-        <div className="main-div">
-          <Header />
-          <EntrySection />
-          {children}
-        </div>
+        <ReduxProvider>
+          <Image src={Blob} className="circle right-bottom" />
+          <Image src={Blob} className="circle left-bottom" />
+          <Image src={Blob} className="circle top-center" />
+          <div className="main-div">
+            <Header />
+            <EntrySection />
+            {children}
+          </div>
+        </ReduxProvider>
       </body>
     </html>
   );

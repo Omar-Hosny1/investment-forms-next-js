@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 
 import "../styles/CheckBox.css";
-function CheckBox({ isSelected, onClick }) {
+function CheckBox({ isSelected, onClick, label }) {
   const getClassName = `check-box ${
     isSelected && "check-box_checked border-checked"
   }`;
@@ -10,7 +10,7 @@ function CheckBox({ isSelected, onClick }) {
   return (
     <div className="check-box-container" onClick={onClick}>
       <div className={getClassName}></div>
-      <span>Label</span>
+      <span>{label}</span>
     </div>
   );
 }

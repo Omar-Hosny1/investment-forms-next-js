@@ -76,6 +76,9 @@
 }
 
 @media (max-width: 992px) {
+  .other-information-form input {
+    margin: 0;
+  }
   .other-information-form {
     align-items: start;
     flex-direction: column;
