@@ -11,7 +11,7 @@ function DetailsForm() {
         <input placeholder="Account Name *" />
         <input placeholder="Account Number *" />
       </div>
-      <div className="details-form__btns">
+      <div className="global-form__btns">
         <button>Cancel</button>
         <button>Save</button>
       </div>

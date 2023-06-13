@@ -1,11 +1,27 @@
 .create-form__container {
   display: flex;
-  align-items: start;
+  /* align-items: start; */
   margin-top: 10px;
 }
 
 .create-form__form {
   margin-left: 5px;
   flex-grow: 1;
-  height: fit-content;
+}
+
+@media (max-width: 992px) {
+  .create-form__form {
+    margin-left: 0;
+  }
+  .create-form__container {
+    flex-direction: column;
+  }
+  .create-form__side-menu {
+    width: 100%;
+  }
+  .create-form__side-menu div {
+    width: 100%;
+    box-sizing: border-box;
+    justify-content: center;
+  }
 }

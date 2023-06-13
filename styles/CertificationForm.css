@@ -1,0 +1,84 @@
+.certification-form {
+  padding: 15px;
+  box-shadow: 5px 10px 10px rgba(46, 42, 42, 0.06);
+  background-color: white;
+}
+
+.certification-form textarea {
+  display: block;
+  width: 100%;
+  height: 250px;
+  resize: none;
+  padding: 10px;
+  box-sizing: border-box;
+  background-color: #d9d9d9;
+  border: 0px;
+}
+.certification-form textarea:focus {
+  border: 0;
+}
+
+#certification-check-box {
+  margin-top: 20px;
+  width: 20px;
+  height: 15px;
+}
+.certification-form label {
+  position: relative;
+  bottom: 2px;
+}
+
+.e_sign-btn {
+  padding: 10px 55px;
+  border: 1px solid #004a91;
+  background-color: #004a91;
+  font-weight: bold;
+  color: white;
+}
+
+.certification-form__btns {
+  width: 100%;
+  display: flex;
+  margin-top: 25px;
+  justify-content: end;
+}
+
+.certification-form__btns button {
+  padding: 10px 55px;
+  border: 1px solid #004a91;
+  font-weight: bold;
+}
+
+.certification-form__btns button:nth-child(1) {
+  background-color: white;
+  color: #004a91;
+  margin-right: 10px;
+}
+.certification-form__btns button:nth-child(2) {
+  background-color: #004a91;
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .certification-form__btns {
+    flex-direction: column;
+  }
+  .certification-form__btns button {
+    padding: 7px 10px;
+  }
+  .certification-form__btns button:nth-child(1) {
+    margin: 10px 0;
+  }
+}
+
+@media (max-width: 992px) {
+  .certification-form {
+    padding: 5px;
+  }
+  .certification-form__btns {
+    justify-content: center;
+  }
+  .certification-form__btns button {
+    flex: 1;
+  }
+}

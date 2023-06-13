@@ -7,6 +7,7 @@
   align-items: center;
   transition: 0.3s;
   width: 100%;
+  background-color: white;
   box-sizing: border-box;
 }
 .forms-entry:hover {
@@ -70,7 +71,7 @@
 }
 
 .forms-entry_second-section input:nth-child(1) {
-  padding: 10px;
+  padding: 10px 30px 10px 10px;
   margin: 0 10px 0 0;
   width: 250px;
   border: 1px solid #b7b7ba;
@@ -87,4 +88,51 @@
   right: 0;
   margin-right: 20px;
   margin-top: 10px;
+}
+
+/* Small */
+@media (max-width: 768px) {
+  .forms-icon_container {
+    display: none;
+  }
+  .forms-icon_container img {
+    display: none;
+  }
+  .forms-entry_description p {
+    font-size: 12px;
+    line-height: 1;
+  }
+  .forms-entry_second-section {
+    width: 100%;
+    flex-direction: column;
+  }
+  .search-input_container img {
+    top: 50%;
+    transform: translateY(-50%);
+    margin-top: 0;
+    margin-right: 10px;
+  }
+  .forms-entry_second-section input:nth-child(1) {
+    width: 100%;
+    margin: 10px 0;
+  }
+  .forms-entry_second-section .sort-by {
+    width: 100%;
+  }
+  .search-input_container {
+    width: 100%;
+  }
+  .forms-entry {
+    padding: 15px;
+    flex-direction: column;
+    align-items: start;
+  }
+}
+/* Meduim */
+@media (max-width: 992px) {
+  .forms-entry {
+    padding: 15px;
+    flex-direction: column;
+    align-items: start;
+  }
 }

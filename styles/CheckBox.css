@@ -1,0 +1,31 @@
+.check-box-container {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  margin-right: 15px;
+}
+.check-box {
+  margin-right: 7px;
+  width: 15px;
+  border: 2px solid gray;
+  height: 15px;
+  position: relative;
+  box-sizing: border-box;
+  border-radius: 7.5px;
+}
+
+.check-box_checked::before {
+  content: "";
+  position: absolute;
+  width: 9px;
+  height: 9px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 4.5px;
+  background-color: #004a91;
+}
+
+.border-checked {
+  border: 2px solid #004a91;
+}

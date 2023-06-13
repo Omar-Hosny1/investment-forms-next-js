@@ -6,6 +6,10 @@
   border: 0;
   color: white;
 }
+html {
+  overflow-x: hidden;
+  /* background-color: #004a91; */
+}
 
 * {
   font-family: "Poppins", sans-serif;
@@ -14,6 +18,9 @@
 button {
   cursor: pointer;
 }
+/* body {
+  background-color: red;
+} */
 
 .container {
   padding-left: 15px;
@@ -37,5 +44,51 @@ button {
 @media (min-width: 1200px) {
   .container {
     width: 1200px;
+  }
+}
+
+/* The Global Submit Button */
+
+.global-form__btns {
+  width: 100%;
+  display: flex;
+  margin-top: 25px;
+  justify-content: end;
+}
+
+.global-form__btns button {
+  padding: 10px 55px;
+  border: 1px solid #004a91;
+  font-weight: bold;
+}
+
+.global-form__btns button:nth-child(1) {
+  background-color: white;
+  color: #004a91;
+  margin-right: 10px;
+}
+.global-form__btns button:nth-child(2) {
+  background-color: #004a91;
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .global-form__btns {
+    flex-direction: column;
+  }
+  .global-form__btns button {
+    padding: 7px 10px;
+  }
+  .global-form__btns button:nth-child(1) {
+    margin: 10px 0;
+  }
+}
+
+@media (max-width: 992px) {
+  .global-form__btns {
+    justify-content: center;
+  }
+  .global-form__btns button {
+    flex: 1;
   }
 }

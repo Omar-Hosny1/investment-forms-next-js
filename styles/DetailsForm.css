@@ -2,7 +2,6 @@
   width: 100%;
   background-color: white;
   box-shadow: 10px 10px 10px rgba(46, 42, 42, 0.06);
-
   padding: 15px;
   box-sizing: border-box;
 }
@@ -35,7 +34,7 @@
 }
 
 .details-form__btns button {
-  padding: 10px 35px;
+  padding: 10px 55px;
   border: 1px solid #004a91;
   font-weight: bold;
 }
@@ -47,4 +46,19 @@
 .details-form__btns button:nth-child(2) {
   background-color: #004a91;
   color: white;
+}
+
+@media (max-width: 768px) {
+  .details-form__iputs input {
+    padding: 5px;
+  }
+  .details-form__iputs input::placeholder {
+    font-size: 10px;
+  }
+  .details-form {
+    overflow: hidden;
+  }
+  .details-form__iputs {
+    grid-template-columns: repeat(1, 1fr);
+  }
 }

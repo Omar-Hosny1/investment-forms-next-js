@@ -39,3 +39,19 @@
 .action-btns img:nth-child(3) {
   background-color: #dcac00;
 }
+
+/* Small */
+@media (max-width: 768px) {
+  .form-item td {
+    padding: 5px;
+    font-size: 11px;
+  }
+  .forms-table__header th {
+    padding: 5px;
+    font-size: 11px;
+  }
+  .action-btns img {
+    padding: 5px;
+    margin-right: 3px;
+  }
+}

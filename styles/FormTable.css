@@ -1,6 +1,7 @@
 .table-container {
   height: 350px;
   background-color: white;
+  overflow-x: auto;
 
   /* To Hide The Scroll bar */
   -ms-overflow-style: none; /* for Internet Explorer, Edge */

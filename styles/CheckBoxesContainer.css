@@ -1,0 +1,19 @@
+.check-boxes {
+  display: flex;
+}
+.check-boxes-container {
+  margin: 15px 0;
+}
+.check-boxes-container h4 {
+  line-height: 0;
+}
+
+@media (max-width: 992px) {
+  .check-boxes {
+    justify-content: space-between;
+    flex-direction: row;
+  }
+  .check-boxes-container {
+    width: 100%;
+  }
+}

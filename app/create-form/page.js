@@ -4,6 +4,7 @@ import React from "react";
 import "../../styles/CreateForm.css";
 import DetailsForm from "@/components/DetailsForm";
 import OtherInformatonForm from "@/components/OtherInformatonForm";
+import CertificationForm from "@/components/CertificationForm";
 
 function CreateForm() {
   return (
@@ -15,8 +16,9 @@ function CreateForm() {
           <SideMenuItem />
         </div>
         <div className="create-form__form">
-          {/* <DetailsForm /> */}
-          <OtherInformatonForm />
+          <DetailsForm />
+          {/* <OtherInformatonForm /> */}
+          {/* <CertificationForm /> */}
         </div>
       </div>
     </div>
