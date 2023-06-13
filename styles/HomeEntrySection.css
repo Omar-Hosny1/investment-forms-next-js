@@ -92,6 +92,9 @@
 
 /* Small */
 @media (max-width: 768px) {
+  .forms-entry {
+    margin-top: 0px;
+  }
   .forms-icon_container {
     display: none;
   }

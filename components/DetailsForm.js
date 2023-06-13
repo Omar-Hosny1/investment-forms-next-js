@@ -13,7 +13,7 @@ function DetailsForm() {
       </div>
       <div className="global-form__btns">
         <button>Cancel</button>
-        <button>Save</button>
+        <button>Next</button>
       </div>
     </div>
   );

@@ -8,7 +8,6 @@
 }
 html {
   overflow-x: hidden;
-  /* background-color: #004a91; */
 }
 
 * {
@@ -18,9 +17,11 @@ html {
 button {
   cursor: pointer;
 }
-/* body {
-  background-color: red;
-} */
+
+a {
+  text-decoration: none;
+  color: white;
+}
 
 .container {
   padding-left: 15px;
@@ -91,4 +92,33 @@ button {
   .global-form__btns button {
     flex: 1;
   }
+  .circle {
+    display: none;
+  }
+}
+
+.circle {
+  width: 500px;
+  height: 500px;
+  position: fixed;
+  z-index: 0;
+}
+
+.left-bottom {
+  bottom: -50px;
+  left: -150px;
+}
+.right-bottom {
+  right: -50px;
+  bottom: -100px;
+}
+.top-center {
+  left: 50%;
+  top: -280px;
+  transform: translateX(-50%);
+}
+
+.main-div {
+  z-index: 1;
+  position: relative;
 }

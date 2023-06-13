@@ -1,6 +1,5 @@
 import React from "react";
 import "../styles/OtherInformatonForm.css";
-import CheckBox from "./CheckBox";
 import CheckBoxesContainer from "./CheckBoxesContainer";
 
 function OtherInformatonForm() {
@@ -16,7 +15,7 @@ function OtherInformatonForm() {
       <input placeholder="Other Entity" />
       <div className="global-form__btns">
         <button>Cancel</button>
-        <button>Save</button>
+        <button>Next</button>
       </div>
     </div>
   );

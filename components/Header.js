@@ -7,6 +7,7 @@ import notificationIcon from "../public/icons/notification.png";
 import arrowIcon from "../public/icons/arrow_down.png";
 import openMenuIcon from "../public/icons/menu.png";
 import closeMenuIcon from "../public/icons/close.png";
+import Link from "next/link";
 
 function Header() {
   const [isEnglishSelected, setIsEnglishSelected] = useState(true);
@@ -22,13 +23,15 @@ function Header() {
   const [isHeaderOpened, setIsHeaderOpened] = useState(false);
   return (
     <div className="header-container">
-      <Image
-        className="header__open-icon"
-        src={openMenuIcon}
-        onClick={() => {
-          setIsHeaderOpened(true);
-        }}
-      />
+      <div className="header__open-icon-container">
+        <Image
+          className="header__open-icon"
+          src={openMenuIcon}
+          onClick={() => {
+            setIsHeaderOpened(true);
+          }}
+        />
+      </div>
 
       <div className={`header ${isHeaderOpened ? "open-header" : ""}`}>
         <Image
@@ -38,6 +41,9 @@ function Header() {
             setIsHeaderOpened(false);
           }}
         />
+        <Link href="/create-form" className="to-form-link">
+          Add a Form
+        </Link>
         <button className="header-button app-button">
           Individual Investor
         </button>
