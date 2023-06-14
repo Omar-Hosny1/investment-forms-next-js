@@ -49,7 +49,3 @@ The project follows a specific folder structure to organize its different compon
 The project utilizes Firebase as the chosen data storage solution. Firebase provides an easy-to-configure backend service that allows for seamless data storage and retrieval. By leveraging Firebase, you can conveniently manage and store data without the need for complex backend setups.
 
 Please note that the specific implementation details for integrating Firebase into the project are not provided in this README. For detailed instructions on how to configure and use Firebase, refer to the official Firebase documentation.
-
-## Conclusion
-
-This README provides a high-level overview of the project, highlighting the key technologies, folder structure, and data storage approach. It serves as a starting point for understanding the project's architecture and can help developers get familiar with the project's structure and organization.
