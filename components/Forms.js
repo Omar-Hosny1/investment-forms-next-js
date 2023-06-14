@@ -2,18 +2,25 @@
 import React, { useState } from "react";
 import "../styles/Forms.css";
 import FormTable from "./FormTable";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  setFormsStatusAsApproved,
+  setFormsStatusAsPending,
+} from "@/redux/features/FormsSlice";
 
 function Forms() {
-  const [isApprovedBtnSelected, setIsApprovedBtnSelected] = useState(true);
+  const dispatch = useDispatch();
+  const isApprovedBtnSelected = useSelector(
+    (state) => state.forms.isApprovedFormsShowed
+  );
 
   const approvedBtnClassName = `${isApprovedBtnSelected && "active-btn"}`;
   const pendingBtnClassName = `${!isApprovedBtnSelected && "active-btn"}`;
-
   function selectApprovedBtnHandler() {
-    setIsApprovedBtnSelected(true);
+    dispatch(setFormsStatusAsApproved());
   }
   function selectPendingBtnHandler() {
-    setIsApprovedBtnSelected(false);
+    dispatch(setFormsStatusAsPending());
   }
 
   return (

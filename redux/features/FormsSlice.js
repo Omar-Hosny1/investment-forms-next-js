@@ -1,3 +1,6 @@
+"use client";
+import { addForm, removeForm } from "@/service/forms-service";
+import { convertProxyToObject } from "@/utils/helper_functions";
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
@@ -11,41 +14,72 @@ const initialState = {
   certificationFormData: {},
   // used to shows the all forms in the table grid
   forms: [],
+  isApprovedFormsShowed: false,
 };
 const FormSlice = createSlice({
   name: "form_slice",
   initialState,
   reducers: {
+    setFormsStatusAsApproved(state) {
+      return { ...state, isApprovedFormsShowed: true };
+    },
+    setFormsStatusAsPending(state) {
+      return { ...state, isApprovedFormsShowed: false };
+    },
     onSaveDetailsFormData(state, action) {
-      console.log("CALLL");
-      return { ...state, detailsFormData: action.payload };
+      return {
+        ...state,
+        detailsFormData: action.payload,
+      };
     },
     onSaveInformationFormData(state, action) {
-      console.log("onSaveInformationFormData EXC");
-      console.log(action.payload);
-      return { ...state, informationsFormData: action.payload };
+      return {
+        ...state,
+        informationsFormData: action.payload,
+      };
     },
     onSaveCertificationFormData(state, action) {
-      return { ...state, certificationFormData: action.payload };
+      return {
+        ...state,
+        certificationFormData: action.payload,
+      };
     },
     goToDetailsFormData(state, _) {
       return { ...state, currentFillingForm: 0 };
     },
     goToInformationsFormData(state, _) {
-      console.log(JSON.stringify({ ...state, currentFillingForm: 1 }));
       return { ...state, currentFillingForm: 1 };
     },
     goToCertificationFormData(state, _) {
-      console.log("goToCertificationFormData EXC");
       return { ...state, currentFillingForm: 2 };
     },
-    onSave(state, _) {
-      console.log(JSON.stringify("...state.informationsFormData"));
-      console.log(JSON.stringify({ ...state.informationsFormData }));
-      console.log(JSON.stringify("{ ...state.detailsFormData }"));
-      console.log(JSON.stringify({ ...state.detailsFormData }));
-      console.log(JSON.stringify(`...state.certificationFormData`));
-      console.log(JSON.stringify({ ...state.certificationFormData }));
+    onSave(state, action) {
+      const newForm = {
+        informationsFormData: convertProxyToObject(state.informationsFormData),
+        detailsFormData: convertProxyToObject(state.detailsFormData),
+        certificationFormData: convertProxyToObject(
+          state.certificationFormData
+        ),
+        date: new Date(),
+      };
+
+      addForm(newForm);
+      return { ...initialState };
+    },
+    setForms(state, action) {
+      return { ...state, forms: [...state.forms, ...action.payload] };
+    },
+    onRemoveForm(state, action) {
+      const forms = convertProxyToObject(state.forms);
+      for (let i = 0; i < forms.length; i++) {
+        const item = forms[i];
+        if (item[0] === action.payload.id) {
+          delete forms[i];
+          break;
+        }
+      }
+      return { ...state, forms: forms };
+      // removeForm(action.payload);
     },
     onCancel(state, _) {
       return { ...initialState, forms: state.forms };
@@ -53,6 +87,10 @@ const FormSlice = createSlice({
   },
 });
 export const {
+  setForms,
+  onRemoveForm,
+  setFormsStatusAsApproved,
+  setFormsStatusAsPending,
   goToCertificationFormData,
   goToDetailsFormData,
   goToInformationsFormData,

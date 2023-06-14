@@ -35,6 +35,7 @@ function Header() {
 
       <div className={`header ${isHeaderOpened ? "open-header" : ""}`}>
         <Image
+          alt="icon"
           className="header__close-icon"
           src={closeMenuIcon}
           onClick={() => {
@@ -48,11 +49,11 @@ function Header() {
           Individual Investor
         </button>
         <div className="header-icon__container themes">
-          <Image src={lightIcon} className="header-icon" />
+          <Image src={lightIcon} className="header-icon" alt="icon" />
           <span>Theme</span>
         </div>
         <div className="header-icon__container">
-          <Image src={notificationIcon} className="header-icon" />
+          <Image src={notificationIcon} className="header-icon" alt="icon" />
           <span>Notifications</span>
         </div>
         <div className="header-language">
@@ -76,7 +77,7 @@ function Header() {
             <span>Welcome!</span>
             <span>Bader Alobaidi</span>
           </div>
-          <Image src={arrowIcon} />
+          <Image src={arrowIcon} alt="icon" />
         </div>
       </div>
     </div>

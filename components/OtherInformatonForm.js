@@ -154,21 +154,20 @@ function OtherInformatonForm() {
       // if the all boxes don't has the "other entity" value just clean the value
       setOtherEntityInputValue(null);
     }
-    // TO GET THE LATEST STATE OBJECT AND SAVE IT
-    setCollectedData((CD) => {
-      dispatch(
-        onSaveInformationFormData({
-          payload: {
-            certificatesdData: CD.certificatesdData,
-            profitsdData: CD.profitsdData,
-            salesdData: CD.salesdData,
-            otherEntityInputValue: CD.otherEntityInputValue,
-          },
-        })
-      );
-      // Go To The Second Screen
-      return CD;
-    });
+    // // TO GET THE LATEST STATE OBJECT AND SAVE IT
+    // setCollectedData((CD) => {
+    //   dispatch(
+    //     );
+    //     // Go To The Second Screen
+    //     return CD;
+    //   });
+    const data = {
+      certificatesdData: collectedData.certificatesdData,
+      profitsdData: collectedData.profitsdData,
+      salesdData: collectedData.salesdData,
+      otherEntityInputValue: collectedData.otherEntityInputValue,
+    };
+    onSaveInformationFormData(data);
     dispatch(goToCertificationFormData());
   }
 

@@ -80,6 +80,7 @@ function CheckBoxesContainer({ title, onSubmit }) {
     const selectedValue = OTHRE_ENTITY_CHECKBOX_VALUE;
     onSubmit(selectedValue);
   }
+
   return (
     <div className="check-boxes-container">
       <h4>{title}</h4>

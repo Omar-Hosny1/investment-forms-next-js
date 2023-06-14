@@ -1,3 +1,4 @@
+"use client";
 import React, { useRef, useState } from "react";
 import "../styles/CertificationForm.css";
 import Error from "./Error";
@@ -7,9 +8,11 @@ import {
   onSave,
   onSaveCertificationFormData,
 } from "@/redux/features/FormsSlice";
+import { useRouter } from "next/navigation";
 
 function CertificationForm() {
   const dispatch = useDispatch();
+  const router = useRouter();
 
   const checkboxRef = useRef(); // check box refrence to get the value
   const textareaRef = useRef(); // textarea refrence to get the value
@@ -45,12 +48,11 @@ function CertificationForm() {
 
     dispatch(
       onSaveCertificationFormData({
-        payload: {
-          certificationText: certificatesTextareaValue,
-        },
+        certificationText: certificatesTextareaValue,
       })
     );
     dispatch(onSave());
+    router.back();
   }
 
   return (

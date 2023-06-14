@@ -12,7 +12,7 @@ function EntrySection() {
       <div className="forms-entry container">
         <div className="forms-entry_first-section">
           <div className="forms-icon_container">
-            <Image src={formsIcon} className="forms-icon" />
+            <Image src={formsIcon} className="forms-icon" alt="icon" />
           </div>
           <div className="forms-entry_description">
             <h3>Forms</h3>
@@ -22,11 +22,11 @@ function EntrySection() {
         <div className="forms-entry_second-section">
           <div className="search-input_container">
             <input placeholder="Search" className="search-input" />
-            <Image src={searchIcon} />
+            <Image src={searchIcon} alt="icon" />
           </div>
           <div className="sort-by">
             <span>Sort By</span>
-            <Image src={arrowDownIcon} />
+            <Image src={arrowDownIcon} alt="icon" />
           </div>
         </div>
       </div>

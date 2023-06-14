@@ -50,3 +50,14 @@ export function showErrorMessage(message, error, setError) {
     });
   }, 2000);
 }
+
+export function convertProxyToObject(proxyObject) {
+  const jsonString = JSON.stringify(proxyObject);
+  return JSON.parse(jsonString);
+}
+
+export const formatter = new Intl.DateTimeFormat("en-US", {
+  month: "long",
+  day: "numeric",
+  year: "numeric",
+});

@@ -40,6 +40,24 @@
   background-color: #dcac00;
 }
 
+.action-btns svg {
+  padding: 10px;
+  margin-right: 10px;
+  cursor: pointer;
+  border-radius: 1px;
+  box-shadow: 10px 10px 10px rgba(46, 42, 42, 0.06);
+  color: white;
+  background-color: rgb(255, 72, 72);
+}
+
+.submitted {
+  background-color: rgb(63, 228, 63);
+  padding: 10px 15px;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
 /* Small */
 @media (max-width: 768px) {
   .form-item td {

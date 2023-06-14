@@ -43,14 +43,14 @@ function DetailsForm() {
       return;
     }
 
-    if (!accountNameValue || !isValidEmail(accountNameValue)) {
-      showErrorMessage(
-        "Please enter a valid account name (email)",
-        error,
-        setError
-      );
-      return;
-    }
+    // if (!accountNameValue || !isValidEmail(accountNameValue)) {
+    //   showErrorMessage(
+    //     "Please enter a valid account name (email)",
+    //     error,
+    //     setError
+    //   );
+    //   return;
+    // }
 
     if (
       !accountNumberValue ||
@@ -63,12 +63,10 @@ function DetailsForm() {
 
     dispatch(
       onSaveDetailsFormData({
-        payload: {
-          name: nameValue,
-          address: addressValue,
-          accountName: accountNameValue,
-          accountNumber: accountNumberValue,
-        },
+        name: nameValue,
+        address: addressValue,
+        accountName: accountNameValue,
+        accountNumber: accountNumberValue,
       })
     );
     // go to the second form
