@@ -10,7 +10,7 @@ import Spinner from "./Spinner";
 import NoItemsFound from "./NoItemsFound";
 
 function FormTable() {
-  const isTablePending = useSelector(
+  const isTableApproved = useSelector(
     (state) => state.forms.isApprovedFormsShowed
   );
   const formsData = useSelector((state) => state.forms.forms);
@@ -47,7 +47,7 @@ function FormTable() {
   const renderedFormsData = formsData.map((e, index) => {
     return (
       <FormItem
-        isPending={isTablePending}
+        isPending={!isTableApproved}
         date={formatter.format(new Date(e[1].date))}
         formTitle={e[1].detailsFormData.name}
         id={e[0]}
@@ -73,8 +73,8 @@ function FormTable() {
               <tr className="forms-table__header">
                 <th>ID</th>
                 <th>Form Title</th>
-                <th>{isTablePending ? "Generated on" : "Date"}</th>
-                {isTablePending && <th>Status</th>}
+                <th>{!isTableApproved ? "Generated on" : "Date"}</th>
+                {!isTableApproved && <th>Status</th>}
                 <th>Actions</th>
               </tr>
             </tbody>
