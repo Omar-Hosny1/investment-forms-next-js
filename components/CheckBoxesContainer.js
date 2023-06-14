@@ -1,5 +1,5 @@
 "use client";
-import React, { useReducer } from "react";
+import React, { useReducer, useState } from "react";
 import "../styles/CheckBoxesContainer.css";
 import CheckBox from "./CheckBox";
 import {
@@ -32,11 +32,13 @@ function CheckBoxesContainer({ title, onSumbit }) {
     const selectedValue = CLIENT_CHECKBOX_VALUE;
     onSumbit(selectedValue);
   }
+
   function onCustodianCheckBoxSelected() {
     dispatch(1);
     const selectedValue = CUSTODIAN_CHECKBOX_VALUE;
     onSumbit(selectedValue);
   }
+
   function onOtherEntityCheckBoxSelected() {
     dispatch(2);
     const selectedValue = OTHRE_ENTITY_CHECKBOX_VALUE;

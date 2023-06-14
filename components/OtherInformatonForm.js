@@ -11,12 +11,11 @@ const initialState = {
   certificatesdData: null,
   profitsdData: null,
   salesdData: null,
+  otherEntityInputValue: null,
 };
 
 function OtherInformatonForm() {
   const dispatch = useDispatch();
-  const otherEntityInputRef = useRef();
-  const [collectedData, setCollectedData] = useState(initialState);
 
   // Represents the state of an error and provides a function to display error messages.
   const [error, setError] = useState({
@@ -24,10 +23,20 @@ function OtherInformatonForm() {
     errorMessage: null, // The error message to be displayed.
   });
 
+  const otherEntityInputRef = useRef();
+  const [collectedData, setCollectedData] = useState(initialState);
+
   function setCertificatesdData(data) {
     console.log(data, "CERTIF");
     setCollectedData((prevData) => {
       return { ...prevData, certificatesdData: data };
+    });
+  }
+
+  function setOtherEntityInputValue(data) {
+    console.log(data, "CERTIF");
+    setCollectedData((prevData) => {
+      return { ...prevData, otherEntityInputValue: data };
     });
   }
   function setProfitsdData(data) {
@@ -39,10 +48,21 @@ function OtherInformatonForm() {
   }
   function setSalesdData(data) {
     console.log(data, "SAL");
-
     setCollectedData((prevData) => {
       return { ...prevData, salesdData: data };
     });
+  }
+
+  function isCheckBoxHasOtherEntityValue() {
+    if (collectedData.certificatesdData == OTHRE_ENTITY_CHECKBOX_VALUE) {
+      return true;
+    }
+    if (collectedData.profitsdData == OTHRE_ENTITY_CHECKBOX_VALUE) {
+      return true;
+    }
+    if (collectedData.salesdData == OTHRE_ENTITY_CHECKBOX_VALUE) {
+      return true;
+    }
   }
 
   // Validate And Save The Data
@@ -69,21 +89,21 @@ function OtherInformatonForm() {
       );
       return;
     }
-    // Handle The Other Entity Mechanism
+    const otherEntityInputValue = otherEntityInputRef.current.value;
+    const isOtherEntityInputValueEmpty =
+      otherEntityInputValue.trim().length == 0;
 
-    // const otherEntityInputValue = otherEntityInputRef.current.value;
-    // const isOtherEntityInputValueEmpty =
-    //   otherEntityInputValue.trim().length == 0;
+    const isCheckBoxesHasOtherEntityValue = isCheckBoxHasOtherEntityValue();
 
-    // if (collectedData.salesdData == OTHRE_ENTITY_CHECKBOX_VALUE) {
-    //   if (isOtherEntityInputValueEmpty) {
-    //     showErrorMessage("Fill The Other Entity Field Please", error, setError);
-    //   } else {
-    //     console.log("RUNNING");
-    //     // add the input value field if the sales section value is "Other Entity"
-    //     setSalesdData(otherEntityInputValue);
-    //   }
-    // }
+    if (isCheckBoxesHasOtherEntityValue) {
+      if (isOtherEntityInputValueEmpty) {
+        showErrorMessage("Fill The Other Entity Field Please", error, setError);
+        return;
+      }
+      setOtherEntityInputValue(otherEntityInputValue);
+    } else {
+      setOtherEntityInputValue(null);
+    }
 
     // dispatch(goToCertificationFormData());
   }
@@ -96,14 +116,17 @@ function OtherInformatonForm() {
         <div className="other-information-form__chooses">
           <CheckBoxesContainer
             title={"Certificates"}
+            onSubmitOtherEntityInput={setOtherEntityInputValue}
             onSumbit={setCertificatesdData}
           />
           <CheckBoxesContainer
             title={"Profits or any other Income"}
+            onSubmitOtherEntityInput={setOtherEntityInputValue}
             onSumbit={setProfitsdData}
           />
           <CheckBoxesContainer
             title={"Sales Outcomes"}
+            onSubmitOtherEntityInput={setOtherEntityInputValue}
             onSumbit={setSalesdData}
           />
         </div>

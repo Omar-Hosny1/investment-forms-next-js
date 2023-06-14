@@ -42,7 +42,7 @@ function Header() {
           }}
         />
         <Link href="/create-form" className="to-form-link">
-          Add a Form
+          Add Form
         </Link>
         <button className="header-button app-button">
           Individual Investor
