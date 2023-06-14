@@ -4,11 +4,14 @@ import CheckBoxesContainer from "./CheckBoxesContainer";
 import { useDispatch } from "react-redux";
 import {
   goToCertificationFormData,
+  onCancel,
   onSaveInformationFormData,
 } from "@/redux/features/FormsSlice";
 import Error from "./Error";
 import { showErrorMessage } from "@/utils/helper_functions";
 import { OTHRE_ENTITY_CHECKBOX_VALUE } from "@/utils/constants";
+import { useRouter } from "next/navigation";
+
 /**
  * This code defines a component called OtherInformationForm that collects data related to other information.
  * The component manages the state of the collected data and provides validation before saving the data.
@@ -30,7 +33,7 @@ const initialState = {
  */
 function OtherInformatonForm() {
   const dispatch = useDispatch();
-
+  const router = useRouter();
   // Represents the state of an error and provides a function to display error messages.
   const [error, setError] = useState({
     isHasError: false, // Indicates whether an error is currently being displayed.
@@ -166,6 +169,11 @@ function OtherInformatonForm() {
     dispatch(goToCertificationFormData());
   }
 
+  function cancleHandler() {
+    dispatch(onCancel());
+    router.back();
+  }
+
   return (
     <>
       <div className="other-information-form">
@@ -190,7 +198,7 @@ function OtherInformatonForm() {
         </div>
         <input placeholder="Other Entity" ref={otherEntityInputRef} />
         <div className="global-form__btns">
-          <button>Cancel</button>
+          <button onClick={cancleHandler}>Cancel</button>
           <button onClick={saveClickHandler}>Next</button>
         </div>
       </div>

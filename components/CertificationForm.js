@@ -5,6 +5,7 @@ import Error from "./Error";
 import { showErrorMessage } from "@/utils/helper_functions";
 import { useDispatch } from "react-redux";
 import {
+  onCancel,
   onSave,
   onSaveCertificationFormData,
 } from "@/redux/features/FormsSlice";
@@ -56,6 +57,11 @@ function CertificationForm() {
     router.back();
   }
 
+  function cancleHandler() {
+    dispatch(onCancel());
+    router.back();
+  }
+
   return (
     <>
       <div className="certification-form">
@@ -73,7 +79,7 @@ function CertificationForm() {
         </p>
         <button className="e_sign-btn">E-Sign Document</button>
         <div className="global-form__btns">
-          <button>Cancel</button>
+          <button onClick={cancleHandler}>Cancel</button>
           <button onClick={saveHandler}>Save</button>
         </div>
       </div>

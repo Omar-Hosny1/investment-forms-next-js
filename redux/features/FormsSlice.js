@@ -86,7 +86,7 @@ const FormSlice = createSlice({
     },
     onCancel(state, _) {
       // Reset the state to initial values, keeping the forms list
-      return { ...initialState, forms: state.forms };
+      return { ...initialState };
     },
   },
 });

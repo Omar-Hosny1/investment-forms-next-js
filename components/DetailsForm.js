@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import "../styles/DetailsForm.css";
 import {
   goToInformationsFormData,
+  onCancel,
   onSaveDetailsFormData,
 } from "../redux/features/FormsSlice";
 import Error from "./Error";
@@ -11,9 +12,11 @@ import {
   isValidNumber,
   showErrorMessage,
 } from "@/utils/helper_functions";
+import { useRouter } from "next/navigation";
 
 function DetailsForm() {
   const dispatch = useDispatch();
+  const router = useRouter();
   const nameRef = useRef();
   const addressRef = useRef();
   const accountNameRef = useRef();
@@ -73,17 +76,22 @@ function DetailsForm() {
     dispatch(goToInformationsFormData());
   }
 
+  function cancleHandler() {
+    dispatch(onCancel());
+    router.back();
+  }
+
   return (
     <div className="details-form">
       <span>Custodian Details</span>
       <div className="details-form__iputs">
-        <input ref={nameRef} placeholder="Name *" />
+        <input ref={nameRef} placeholder="Name (Used as a form title)*" />
         <input ref={addressRef} placeholder="Address of Correspondence *" />
         <input ref={accountNameRef} placeholder="Account Name *" />
         <input ref={accountNumberRef} placeholder="Account Number *" />
       </div>
       <div className="global-form__btns">
-        <button>Cancel</button>
+        <button onClick={cancleHandler}>Cancel</button>
         <button onClick={submitClickHandler}>Next</button>
       </div>
       {error.isHasError ? <Error message={error.errorMessage} /> : null}
