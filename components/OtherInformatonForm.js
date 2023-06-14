@@ -6,7 +6,14 @@ import { goToCertificationFormData } from "@/redux/features/FormsSlice";
 import Error from "./Error";
 import { showErrorMessage } from "@/utils/helper_functions";
 import { OTHRE_ENTITY_CHECKBOX_VALUE } from "@/utils/constants";
+/**
+ * This code defines a component called OtherInformationForm that collects data related to other information.
+ * The component manages the state of the collected data and provides validation before saving the data.
+ */
 
+/**
+ * The initial state object representing the initial values of the collected data.
+ */
 const initialState = {
   certificatesdData: null,
   profitsdData: null,
@@ -14,6 +21,10 @@ const initialState = {
   otherEntityInputValue: null,
 };
 
+/**
+ * The OtherInformationForm component that collects data related to other information.
+ * @returns {JSX.Element} - The rendered component.
+ */
 function OtherInformatonForm() {
   const dispatch = useDispatch();
 
@@ -26,86 +37,122 @@ function OtherInformatonForm() {
   const otherEntityInputRef = useRef();
   const [collectedData, setCollectedData] = useState(initialState);
 
+  /**
+   * Updates the collected data with the certificates data.
+   * @param {any} data - The certificates data to be set.
+   */
   function setCertificatesdData(data) {
-    console.log(data, "CERTIF");
     setCollectedData((prevData) => {
       return { ...prevData, certificatesdData: data };
     });
   }
 
+  /**
+   * Updates the collected data with the other entity input value.
+   * @param {any} data - The other entity input value to be set.
+   */
   function setOtherEntityInputValue(data) {
-    console.log(data, "CERTIF");
     setCollectedData((prevData) => {
       return { ...prevData, otherEntityInputValue: data };
     });
   }
-  function setProfitsdData(data) {
-    console.log(data, "PROF");
 
+  /**
+   * Updates the collected data with the profits data.
+   * @param {any} data - The profits data to be set.
+   */
+  function setProfitsdData(data) {
     setCollectedData((prevData) => {
       return { ...prevData, profitsdData: data };
     });
   }
+
+  /**
+   * Updates the collected data with the sales data.
+   * @param {any} data - The sales data to be set.
+   */
   function setSalesdData(data) {
-    console.log(data, "SAL");
     setCollectedData((prevData) => {
       return { ...prevData, salesdData: data };
     });
   }
 
+  /**
+   * Checks if any of the checkboxes has the value of other entity.
+   * @returns {boolean} - True if any of the checkboxes has the value of other entity, false otherwise.
+   */
   function isCheckBoxHasOtherEntityValue() {
-    if (collectedData.certificatesdData == OTHRE_ENTITY_CHECKBOX_VALUE) {
+    if (collectedData.certificatesdData === OTHRE_ENTITY_CHECKBOX_VALUE) {
       return true;
     }
-    if (collectedData.profitsdData == OTHRE_ENTITY_CHECKBOX_VALUE) {
+    if (collectedData.profitsdData === OTHRE_ENTITY_CHECKBOX_VALUE) {
       return true;
     }
-    if (collectedData.salesdData == OTHRE_ENTITY_CHECKBOX_VALUE) {
+    if (collectedData.salesdData === OTHRE_ENTITY_CHECKBOX_VALUE) {
       return true;
     }
   }
 
-  // Validate And Save The Data
+  /**
+   * Handles the click event of the save button in the OtherInformationForm component.
+   * Validates the collected data and takes appropriate actions.
+   */
   function saveClickHandler() {
     console.log(collectedData);
+
+    // Validate Certificates Section
     if (!collectedData.certificatesdData) {
       showErrorMessage(
-        "Compelete The Certificates Section Please",
+        "Complete the Certificates Section, Please",
         error,
         setError
       );
       return;
     }
 
+    // Validate Profits Section
     if (!collectedData.profitsdData) {
-      showErrorMessage("Compelete The Profits Section Please", error, setError);
+      showErrorMessage("Complete the Profits Section, Please", error, setError);
       return;
     }
+
+    // Validate Sales Outcomes Section
     if (!collectedData.salesdData) {
       showErrorMessage(
-        "Compelete The Sales Outcomes Section Please",
+        "Complete the Sales Outcomes Section, Please",
         error,
         setError
       );
       return;
     }
+
+    // Get the value of the Other Entity input field
     const otherEntityInputValue = otherEntityInputRef.current.value;
     const isOtherEntityInputValueEmpty =
-      otherEntityInputValue.trim().length == 0;
+      otherEntityInputValue.trim().length === 0;
 
+    // Check if any checkbox has the value of other entity
     const isCheckBoxesHasOtherEntityValue = isCheckBoxHasOtherEntityValue();
 
+    // Validate Other Entity Field if they has any "other entity" value
     if (isCheckBoxesHasOtherEntityValue) {
+      // Check if the input value has no value
       if (isOtherEntityInputValueEmpty) {
-        showErrorMessage("Fill The Other Entity Field Please", error, setError);
+        // Global Value that help to show error messages
+        showErrorMessage(
+          "Fill the Other Entity Field, Please",
+          error,
+          setError
+        );
         return;
       }
       setOtherEntityInputValue(otherEntityInputValue);
     } else {
+      // if the all boxes don't has the "other entity" value just clean the value
       setOtherEntityInputValue(null);
     }
 
-    // dispatch(goToCertificationFormData());
+    dispatch(goToCertificationFormData());
   }
 
   return (
@@ -117,17 +164,17 @@ function OtherInformatonForm() {
           <CheckBoxesContainer
             title={"Certificates"}
             onSubmitOtherEntityInput={setOtherEntityInputValue}
-            onSumbit={setCertificatesdData}
+            onSubmit={setCertificatesdData}
           />
           <CheckBoxesContainer
             title={"Profits or any other Income"}
             onSubmitOtherEntityInput={setOtherEntityInputValue}
-            onSumbit={setProfitsdData}
+            onSubmit={setProfitsdData}
           />
           <CheckBoxesContainer
             title={"Sales Outcomes"}
             onSubmitOtherEntityInput={setOtherEntityInputValue}
-            onSumbit={setSalesdData}
+            onSubmit={setSalesdData}
           />
         </div>
         <input placeholder="Other Entity" ref={otherEntityInputRef} />
