@@ -2,7 +2,10 @@ import React, { useRef, useState } from "react";
 import "../styles/OtherInformatonForm.css";
 import CheckBoxesContainer from "./CheckBoxesContainer";
 import { useDispatch } from "react-redux";
-import { goToCertificationFormData } from "@/redux/features/FormsSlice";
+import {
+  goToCertificationFormData,
+  onSaveInformationFormData,
+} from "@/redux/features/FormsSlice";
 import Error from "./Error";
 import { showErrorMessage } from "@/utils/helper_functions";
 import { OTHRE_ENTITY_CHECKBOX_VALUE } from "@/utils/constants";
@@ -151,7 +154,21 @@ function OtherInformatonForm() {
       // if the all boxes don't has the "other entity" value just clean the value
       setOtherEntityInputValue(null);
     }
-
+    // TO GET THE LATEST STATE OBJECT AND SAVE IT
+    setCollectedData((CD) => {
+      dispatch(
+        onSaveInformationFormData({
+          payload: {
+            certificatesdData: CD.certificatesdData,
+            profitsdData: CD.profitsdData,
+            salesdData: CD.salesdData,
+            otherEntityInputValue: CD.otherEntityInputValue,
+          },
+        })
+      );
+      // Go To The Second Screen
+      return CD;
+    });
     dispatch(goToCertificationFormData());
   }
 

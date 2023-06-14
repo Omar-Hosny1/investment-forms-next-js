@@ -1,7 +1,10 @@
 import React, { useRef, useState } from "react";
 import { useDispatch } from "react-redux";
 import "../styles/DetailsForm.css";
-import { goToInformationsFormData } from "../redux/features/FormsSlice";
+import {
+  goToInformationsFormData,
+  onSaveDetailsFormData,
+} from "../redux/features/FormsSlice";
 import Error from "./Error";
 import {
   isValidEmail,
@@ -58,6 +61,16 @@ function DetailsForm() {
       return;
     }
 
+    dispatch(
+      onSaveDetailsFormData({
+        payload: {
+          name: nameValue,
+          address: addressValue,
+          accountName: accountNameValue,
+          accountNumber: accountNumberValue,
+        },
+      })
+    );
     // go to the second form
     dispatch(goToInformationsFormData());
   }

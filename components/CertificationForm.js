@@ -2,8 +2,15 @@ import React, { useRef, useState } from "react";
 import "../styles/CertificationForm.css";
 import Error from "./Error";
 import { showErrorMessage } from "@/utils/helper_functions";
+import { useDispatch } from "react-redux";
+import {
+  onSave,
+  onSaveCertificationFormData,
+} from "@/redux/features/FormsSlice";
 
 function CertificationForm() {
+  const dispatch = useDispatch();
+
   const checkboxRef = useRef(); // check box refrence to get the value
   const textareaRef = useRef(); // textarea refrence to get the value
 
@@ -17,11 +24,11 @@ function CertificationForm() {
     // Check if the checkbox is checked
     const isCheckboxChecked = checkboxRef.current.checked;
 
-    // Check if the textarea is filled
-    const isTextareaFilled = textareaRef.current.value;
+    // hold the textarea value
+    const certificatesTextareaValue = textareaRef.current.value;
 
     // If textarea is not filled, show an error message and close the function
-    if (!isTextareaFilled) {
+    if (!certificatesTextareaValue) {
       showErrorMessage(
         "Please Fill The Certification Textarea",
         error,
@@ -35,6 +42,15 @@ function CertificationForm() {
       showErrorMessage("Please tick the box to certify", error, setError);
       return;
     }
+
+    dispatch(
+      onSaveCertificationFormData({
+        payload: {
+          certificationText: certificatesTextareaValue,
+        },
+      })
+    );
+    dispatch(onSave());
   }
 
   return (
