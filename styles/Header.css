@@ -116,8 +116,8 @@
   margin-right: 5px;
   border-radius: 5px;
   box-sizing: border-box;
-  font-weight: bold;
-  font-size: 15px;
+  font-weight: 500;
+  font-size: 14.5px;
   transition: 0.3s;
 }
 .to-form-link:hover {

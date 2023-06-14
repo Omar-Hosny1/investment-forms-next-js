@@ -50,6 +50,11 @@
   background-color: rgb(255, 72, 72);
 }
 
+@media (max-width: 768px) {
+  .action-btns svg {
+    padding: 6px;
+  }
+}
 .submitted {
   background-color: rgb(63, 228, 63);
   padding: 10px 15px;

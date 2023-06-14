@@ -67,7 +67,6 @@ function CheckBoxesContainer({ title, onSubmit }) {
   function onCustodianCheckBoxSelected() {
     dispatch(1); // Replace with the actual value for the checkbox
     const selectedValue = CUSTODIAN_CHECKBOX_VALUE;
-    console.log(onSubmit);
     onSubmit(selectedValue);
   }
 

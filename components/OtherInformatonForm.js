@@ -154,13 +154,7 @@ function OtherInformatonForm() {
       // if the all boxes don't has the "other entity" value just clean the value
       setOtherEntityInputValue(null);
     }
-    // // TO GET THE LATEST STATE OBJECT AND SAVE IT
-    // setCollectedData((CD) => {
-    //   dispatch(
-    //     );
-    //     // Go To The Second Screen
-    //     return CD;
-    //   });
+    // collected data
     const data = {
       certificatesdData: collectedData.certificatesdData,
       profitsdData: collectedData.profitsdData,
@@ -168,6 +162,7 @@ function OtherInformatonForm() {
       otherEntityInputValue: collectedData.otherEntityInputValue,
     };
     onSaveInformationFormData(data);
+    // Go to the next forms
     dispatch(goToCertificationFormData());
   }
 

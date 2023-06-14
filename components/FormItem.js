@@ -12,6 +12,7 @@ import { useDispatch } from "react-redux";
 import { onRemoveForm } from "@/redux/features/FormsSlice";
 
 function FormItem({ isPending, formTitle, date, id, currentForm }) {
+  // To Show it with Two digits even it smaller than 10
   const getTheId = `${currentForm < 10 ? "0" + currentForm : currentForm}`;
   const dispatch = useDispatch();
 

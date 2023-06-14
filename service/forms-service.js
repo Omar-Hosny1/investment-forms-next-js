@@ -11,8 +11,9 @@ export async function getForms() {
     console.log(incomingData);
     return incomingData;
   } catch (error) {
-    console.error("Error fetching forms:", error);
-    return [];
+    throw error;
+    // console.error("Error fetching forms:", error);
+    // return [];
   }
 }
 export async function addForm(formData) {

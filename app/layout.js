@@ -16,9 +16,9 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body>
         <ReduxProvider>
-          <Image src={Blob} className="circle right-bottom" />
-          <Image src={Blob} className="circle left-bottom" />
-          <Image src={Blob} className="circle top-center" />
+          <Image src={Blob} className="circle right-bottom" alt="blob" />
+          <Image src={Blob} className="circle left-bottom" alt="blob" />
+          <Image src={Blob} className="circle top-center" alt="blob" />
           <div className="main-div">
             <Header />
             <EntrySection />

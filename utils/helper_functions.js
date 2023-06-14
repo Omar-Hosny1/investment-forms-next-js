@@ -50,12 +50,13 @@ export function showErrorMessage(message, error, setError) {
     });
   }, 2000);
 }
-
+// used to convert from Proxy Object To JS Object
 export function convertProxyToObject(proxyObject) {
   const jsonString = JSON.stringify(proxyObject);
   return JSON.parse(jsonString);
 }
 
+// Transform the date object to understandable string
 export const formatter = new Intl.DateTimeFormat("en-US", {
   month: "long",
   day: "numeric",

@@ -1,4 +1,3 @@
-"use client";
 import { addForm, removeForm } from "@/service/forms-service";
 import { convertProxyToObject } from "@/utils/helper_functions";
 import { createSlice } from "@reduxjs/toolkit";
@@ -21,41 +20,49 @@ const FormSlice = createSlice({
   initialState,
   reducers: {
     setFormsStatusAsApproved(state) {
+      // Set the state to show approved forms
       return { ...state, isApprovedFormsShowed: true };
     },
     setFormsStatusAsPending(state) {
+      // Set the state to show pending forms
       return { ...state, isApprovedFormsShowed: false };
     },
     onSaveDetailsFormData(state, action) {
+      // Save details form data to the state
       return {
         ...state,
         detailsFormData: action.payload,
       };
     },
     onSaveInformationFormData(state, action) {
+      // Save information form data to the state
       return {
         ...state,
         informationsFormData: action.payload,
       };
     },
     onSaveCertificationFormData(state, action) {
+      // Save certification form data to the state
       return {
         ...state,
         certificationFormData: action.payload,
       };
     },
     goToDetailsFormData(state, _) {
+      // Set the current filling form to details form
       return { ...state, currentFillingForm: 0 };
     },
     goToInformationsFormData(state, _) {
+      // Set the current filling form to information form
       return { ...state, currentFillingForm: 1 };
     },
     goToCertificationFormData(state, _) {
+      // Set the current filling form to certification form
       return { ...state, currentFillingForm: 2 };
     },
-    onSave(state, action) {
+    onSave(state, _) {
+      // Save the form data and reset the state
       const newForm = {
-        informationsFormData: convertProxyToObject(state.informationsFormData),
         detailsFormData: convertProxyToObject(state.detailsFormData),
         certificationFormData: convertProxyToObject(
           state.certificationFormData
@@ -67,25 +74,23 @@ const FormSlice = createSlice({
       return { ...initialState };
     },
     setForms(state, action) {
+      // Set the forms data to the state
       return { ...state, forms: [...state.forms, ...action.payload] };
     },
     onRemoveForm(state, action) {
+      // Remove a form from the state and update the forms list
       const forms = convertProxyToObject(state.forms);
-      for (let i = 0; i < forms.length; i++) {
-        const item = forms[i];
-        if (item[0] === action.payload.id) {
-          delete forms[i];
-          break;
-        }
-      }
-      return { ...state, forms: forms };
-      // removeForm(action.payload);
+      const newItems = forms.filter((e) => e[0] !== action.payload.id);
+      removeForm(action.payload.id);
+      return { ...state, forms: newItems };
     },
     onCancel(state, _) {
+      // Reset the state to initial values, keeping the forms list
       return { ...initialState, forms: state.forms };
     },
   },
 });
+
 export const {
   setForms,
   onRemoveForm,

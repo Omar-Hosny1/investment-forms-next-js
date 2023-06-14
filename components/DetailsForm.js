@@ -43,14 +43,14 @@ function DetailsForm() {
       return;
     }
 
-    // if (!accountNameValue || !isValidEmail(accountNameValue)) {
-    //   showErrorMessage(
-    //     "Please enter a valid account name (email)",
-    //     error,
-    //     setError
-    //   );
-    //   return;
-    // }
+    if (!accountNameValue || !isValidEmail(accountNameValue)) {
+      showErrorMessage(
+        "Please enter a valid account name (email)",
+        error,
+        setError
+      );
+      return;
+    }
 
     if (
       !accountNumberValue ||

@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import "../styles/Header.css";
 import lightIcon from "../public/icons/light.png";
@@ -11,16 +11,24 @@ import Link from "next/link";
 
 function Header() {
   const [isEnglishSelected, setIsEnglishSelected] = useState(true);
+
+  // Handle the selection of English language
   function onEnglishSelectedHandler() {
     setIsEnglishSelected(true);
   }
+
+  // Handle the selection of Arabic language
   function onArabicSelectedHandler() {
     setIsEnglishSelected(false);
   }
 
+  // Set the class name based on the selected language
   const englishClassName = `${isEnglishSelected && "active-span"}`;
   const arabicClassName = `${!isEnglishSelected && "active-span"}`;
+
+  // Manage the state of the header opened/closed state
   const [isHeaderOpened, setIsHeaderOpened] = useState(false);
+
   return (
     <div className="header-container">
       <div className="header__open-icon-container">
@@ -42,7 +50,11 @@ function Header() {
             setIsHeaderOpened(false);
           }}
         />
-        <Link href="/create-form" className="to-form-link">
+        <Link
+          href="/create-form"
+          className="to-form-link"
+          onClick={() => setIsHeaderOpened(false)}
+        >
           Add Form
         </Link>
         <button className="header-button app-button">

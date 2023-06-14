@@ -1,12 +1,12 @@
+"use client";
 import React from "react";
-
 import "../styles/HomeEntrySection.css";
 import Image from "next/image";
 import arrowDownIcon from "../public/icons/arrow-down_blue.png";
 import formsIcon from "../public/icons/forms.png";
 import searchIcon from "../public/icons/search.png";
 
-function EntrySection() {
+function EntrySection({}) {
   return (
     <div className="container">
       <div className="forms-entry container">
