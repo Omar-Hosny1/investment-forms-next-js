@@ -1,9 +1,8 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import showIcon from "../public/icons/show.png";
 import downloadIcon from "../public/icons/download.png";
 import editIcon from "../public/icons/edit.png";
-import removeIcon from "../public/icons/remove.png";
 import Image from "next/image";
 import "../styles/FormItem.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -14,11 +13,14 @@ import { onRemoveForm } from "@/redux/features/FormsSlice";
 function FormItem({ isPending, formTitle, date, id, currentForm }) {
   // To Show it with Two digits even it smaller than 10
   const getTheId = `${currentForm < 10 ? "0" + currentForm : currentForm}`;
+
+  // To Dispatch Actions
   const dispatch = useDispatch();
 
   function RemoveHandler() {
     dispatch(onRemoveForm({ id }));
   }
+
   return (
     <tbody>
       <tr className="form-item">
@@ -35,7 +37,7 @@ function FormItem({ isPending, formTitle, date, id, currentForm }) {
             <Image src={editIcon} alt="edit-icon" />
             <Image src={showIcon} alt="show-icon" />
             {!isPending && <Image src={downloadIcon} alt="download-icon" />}
-            {!isPending && (
+            {isPending && (
               <FontAwesomeIcon icon={faRemove} onClick={RemoveHandler} />
             )}
           </div>

@@ -8,12 +8,9 @@ export async function getForms() {
       }
     );
     const incomingData = await res.json();
-    console.log(incomingData);
     return incomingData;
   } catch (error) {
-    throw error;
-    // console.error("Error fetching forms:", error);
-    // return [];
+    return [];
   }
 }
 export async function addForm(formData) {
@@ -29,7 +26,6 @@ export async function addForm(formData) {
     const newForm = await res.json();
     return newForm;
   } catch (error) {
-    console.error("Error adding form:", error);
     return null;
   }
 }
@@ -46,7 +42,6 @@ export async function removeForm(formId) {
     const deletedForm = await res.json();
     return deletedForm;
   } catch (error) {
-    console.error("Error removing form:", error);
     return null;
   }
 }
@@ -64,7 +59,6 @@ export async function updateForm(formId, formData) {
     const updatedForm = await res.json();
     return updatedForm;
   } catch (error) {
-    console.error("Error updating form:", error);
     return null;
   }
 }

@@ -13,7 +13,7 @@ const initialState = {
   certificationFormData: {},
   // used to shows the all forms in the table grid
   forms: [],
-  isApprovedFormsShowed: false,
+  isApprovedFormsShowed: true,
 };
 const FormSlice = createSlice({
   name: "form_slice",
@@ -56,6 +56,10 @@ const FormSlice = createSlice({
       // Set the current filling form to information form
       return { ...state, currentFillingForm: 1 };
     },
+    // reset the forms to the default values
+    resetForms() {
+      return { ...initialState };
+    },
     goToCertificationFormData(state, _) {
       // Set the current filling form to certification form
       return { ...state, currentFillingForm: 2 };
@@ -93,6 +97,7 @@ const FormSlice = createSlice({
 
 export const {
   setForms,
+  resetForms,
   onRemoveForm,
   setFormsStatusAsApproved,
   setFormsStatusAsPending,

@@ -4,7 +4,7 @@ import FormItem from "./FormItem";
 import "../styles/FormTable.css";
 import { getForms } from "@/service/forms-service";
 import { useDispatch, useSelector } from "react-redux";
-import { setForms } from "@/redux/features/FormsSlice";
+import { resetForms, setForms } from "@/redux/features/FormsSlice";
 import { formatter, showErrorMessage } from "@/utils/helper_functions";
 import Spinner from "./Spinner";
 import NoItemsFound from "./NoItemsFound";
@@ -32,15 +32,17 @@ function FormTable() {
 
   useEffect(() => {
     try {
+      // to add the loading spinner
       setIsLoading(true);
-
+      // to get the latest data
+      dispatch(resetForms());
       // Call the fetch() function to fetch the forms data
       fetch();
     } catch (error) {
       // Show error message if an error occurs during fetching
       showErrorMessage("Something Went Wrong", error, setError);
     }
-
+    // to remove the loading spinner
     setIsLoading(false);
   }, []);
 
